@@ -4,14 +4,14 @@ Demo đồ án khai thác dữ liệu
 Hướng dẫn cài đặt và chạy demo
 
 - Yêu cầu:
-NodeJS 7+
-có hỗ trợ npm package
++ NodeJS 7+
++ có hỗ trợ npm package
 
 - Cài đặt:
-git clone https://github.com/uitcode/doanKTDL.git
-mở terminar (hoặc cmd) tại thu mục cài đặt chạy các lệnh sau:
-npm i
-npm start
++ git clone https://github.com/uitcode/doanKTDL.git
++ mở terminar (hoặc cmd) tại thu mục cài đặt chạy các lệnh sau:
++ npm i
++ npm start
 
 Sau đó truy cập vào http://localhost:3000/ để truy cập demo
 
