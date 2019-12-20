@@ -1,0 +1,383 @@
+@font-face {
+  font-family: Lato-Regular;
+  src: url(../font/Lato-Regular.ttf)
+}
+
+@font-face {
+  font-family: Lato-Bold;
+  src: url(../font/Lato-Bold.ttf)
+}
+
+body {
+  margin-bottom: 50px;
+}
+
+.table-list {
+  max-width: 100%;
+  max-height: 30em;
+  overflow: scroll;
+  position: relative;
+  margin: 0px 21px 20px;
+  display: none;
+}
+
+.table-list::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.table-list::-webkit-scrollbar-thumb {
+  background: rgb(102, 102, 102);
+}
+
+.table-list::-webkit-scrollbar-track {
+  background: rgb(221, 221, 221);
+}
+
+table {
+  position: relative;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0.25em;
+}
+
+thead th {
+  font-family: Lato-Bold;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  line-height: 1.4;
+  background-color: rgb(108, 122, 224);
+  padding: 15px 10px;
+  position: -webkit-sticky;
+  /* for Safari */
+  position: sticky;
+  top: 0;
+}
+
+thead th:first-child {
+  left: 0;
+  z-index: 1;
+}
+
+tbody tr {
+  font-family: Lato-Regular;
+  font-size: 15px;
+  color: rgb(128, 128, 128);
+  line-height: 1.4;
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(248, 246, 255);
+}
+
+tbody tr td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+
+
+tbody tr:nth-child(even) th {
+  background-color: rgb(248, 246, 255) !important;
+}
+
+tbody tr:nth-child(odd) th {
+  background-color: rgb(255, 255, 255);
+}
+
+tbody tr th {
+  position: -webkit-sticky;
+  /* for Safari */
+  position: sticky;
+  left: 0;
+  border-right: 1px solid #CCC;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+img.avatar {
+  width: 25px;
+}
+
+th.name {
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+
+th.def-title {
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+th.pac {
+  background: rgb(76, 175, 80);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+th.sho {
+  background: rgb(224, 178, 41);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+th.pas {
+  background: rgb(224, 75, 41);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+th.dri {
+  background: rgb(3, 169, 244);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+th.def {
+  background: rgb(214, 87, 130);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+th.phy {
+  background: rgb(183, 133, 114);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+.setting-input {
+  padding: 10px;
+  margin: 0px;
+}
+
+
+.input-field.input-outlined>input {
+  border: 2px solid #eee;
+  padding: 12px 16px 14px;
+  width: calc(100% - 2.5rem);
+  float: none;
+  display: block;
+  border-radius: 4px;
+  transition: box-shadow, border-color 0.15s;
+}
+
+.input-field.input-outlined>input:focus:not([readonly]) {
+  border-color: #26A69B;
+  box-shadow: 0 1px 0 0px #26A69B;
+}
+
+.input-field.input-outlined>label {
+  left: 27px;
+  display: inline-flex;
+  width: auto !important;
+}
+
+.input-field.input-outlined>label.active {
+  background: white;
+  border-left: 4px solid white;
+  border-right: 4px solid white;
+  -webkit-transform: translateY(-1.75rem);
+  transform: translateY(-1.75rem);
+  top: 1rem;
+}
+
+input#value_r,
+input#value_epochs,
+input#value_a,
+input.fit-input {
+  height: 100% !important;
+}
+
+
+
+
+.file-upload, .file-upload-test {
+  display: block;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 1rem 0rem;
+}
+
+.file-upload .file-select, .file-upload-test .file-select {
+  display: block;
+  border: 2px solid #dce4ec;
+  color: #34495e;
+  cursor: pointer;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  background: #FFFFFF;
+  overflow: hidden;
+  position: relative;
+}
+
+.file-upload .file-select .file-select-button, .file-upload-test .file-select .file-select-button {
+  background: rgb(220, 228, 236);
+  padding: 0 10px;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+}
+
+.file-upload .file-select .file-select-name, .file-upload-test .file-select .file-select-name {
+  line-height: 50px;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.file-upload .file-select:hover, .file-upload-test .file-select:hover {
+  border-color: #34495e;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+}
+
+.file-upload .file-select:hover .file-select-button, .file-upload-test .file-select:hover .file-select-button {
+  background: #34495e;
+  color: #FFFFFF;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+}
+
+.file-upload.active .file-select, .file-upload-test.active .file-select {
+  border-color: #3fa46a;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+}
+
+.file-upload.active .file-select .file-select-button, .file-upload-test.active .file-select .file-select-button {
+  background: #3fa46a;
+  color: #FFFFFF;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+}
+
+.file-upload .file-select input[type=file], .file-upload-test .file-select input[type=file] {
+  z-index: 100;
+  cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.file-upload .file-select.file-select-disabled, .file-upload-test .file-select.file-select-disabled {
+  opacity: 0.65;
+}
+
+.file-upload .file-select.file-select-disabled:hover, .file-upload-est .file-select.file-select-disabled:hover {
+  cursor: default;
+  display: block;
+  border: 2px solid #dce4ec;
+  color: #34495e;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 5px;
+  text-align: left;
+  background: #FFFFFF;
+  overflow: hidden;
+  position: relative;
+}
+
+.file-upload .file-select.file-select-disabled:hover .file-select-button, .file-upload-test .file-select.file-select-disabled:hover .file-select-button {
+  background: #dce4ec;
+  color: #666666;
+  padding: 0 10px;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+}
+
+.file-upload .file-select.file-select-disabled:hover .file-select-name, .file-upload-test .file-select.file-select-disabled:hover .file-select-name {
+  line-height: 40px;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+
+.list-vector {
+  padding: 0px !important;
+}
+
+.name-vector {
+  padding: 12px 16px 14px !important;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.button-m {
+  margin: 0px 21px;
+  display: none;
+}
+
+.clustering-title {
+  padding: 10px;
+  background: rgb(168, 206, 124);
+  border-radius: 3px 3px 0px 0px;
+  margin: 0px !important;
+}
+
+.clustering-item {
+  padding: 10px;
+  border-left: 1px solid rgb(168, 206, 124);
+  border-right: 1px solid rgb(168, 206, 124);
+  border-bottom: 1px solid rgb(168, 206, 124);
+  display: flex;
+  align-items: center;
+}
+
+img.clustering-avatar {
+  width: 20px;
+}
+
+span.clustering-name {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.clustering-list {
+  height: 344px;
+  overflow: auto;
+}
+
+.clustering-list::-webkit-scrollbar {
+  width: 9px;
+}
+
+.clustering-list::-webkit-scrollbar-thumb {
+  background: rgb(102, 102, 102);
+}
+
+.clustering-list::-webkit-scrollbar-track {
+  background: rgb(221, 221, 221);
+}
+
+.show-clustering {
+  margin: 10px 0px 20px;
+  display: none;
+}
+
+.clustering-error {
+  background: rgb(222, 147, 161) !important;
+}
+
+.choice-vector {
+  background: rgb(184, 225, 245) !important;
+}
+
+.m-file-upload {
+  margin: 0px 20px 20px;
+  display: none;
+}
