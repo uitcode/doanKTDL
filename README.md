@@ -3,11 +3,11 @@ Demo đồ án khai thác dữ liệu
 
 Hướng dẫn cài đặt và chạy demo
 
-- Yêu cầu:
+Yêu cầu:
 + NodeJS 7+
 + có hỗ trợ npm package
 
-- Cài đặt:
+Cài đặt:
 + git clone https://github.com/uitcode/doanKTDL.git
 + mở terminar (hoặc cmd) tại thu mục cài đặt chạy các lệnh sau:
 + npm i
