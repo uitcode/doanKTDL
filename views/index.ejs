@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/knn.js"></script>
+    <script src="javascripts/index.js"></script>
+  </head>
+  <body>
+    <div class="setting-input row">
+      <div class="col s2">
+        <div class="input-field input-outlined">
+          <input id="value_r" type="text">
+          <label for="value_r">𝑅</label>
+        </div>
+      </div>
+      <div class="col s2">
+        <div class="input-field input-outlined">
+          <input id="value_epochs" type="text">
+          <label for="value_epochs">𝑒𝑝𝑜𝑐ℎ𝑠</label>
+        </div>
+      </div>
+      <div class="col s2">
+        <div class="input-field input-outlined">
+          <input id="value_a" type="text">
+          <label for="value_a">𝛼</label>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="file-upload">
+          <div class="file-select">
+            <div class="file-select-button" id="fileName">Chọn File</div>
+            <div class="file-select-name" id="noFile">Hiên chưa có file được chọn...</div> 
+            <input type="file" onchange="loadFile(this)" name="chooseFile" id="chooseFile">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-list" id="table-list">
+      <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th class="def-title">STT</th>
+        <th class="def-title">ID</th>
+        <th class="def-title">Position</th>
+        <th class="pac">Acceleration</th>
+        <th class="pac">SprintSpeed</th>
+        <th class="sho">Finishing</th>
+        <th class="sho">Volleys</th>
+        <th class="sho">ShotPower</th>
+        <th class="sho">LongShots</th>
+        <th class="sho">Positioning</th>
+        <th class="sho">Penalties</th>
+        <th class="pas">Vision</th>
+        <th class="pas">ShortPassing</th>
+        <th class="pas">Curve</th>
+        <th class="pas">FKAccuracy</th>
+        <th class="pas">LongPassing</th>
+        <th class="pas">Crossing</th>
+        <th class="dri">BallControl</th>
+        <th class="dri">Dribbling</th>
+        <th class="dri">Agility</th>
+        <th class="dri">Reactions</th>
+        <th class="dri">Balance</th>
+        <th class="dri">Composure</th>
+        <th class="def">HeadingAccuracy</th>
+        <th class="def">Interceptions</th>
+        <th class="def">Marking</th>
+        <th class="def">StandingTackle</th>
+        <th class="def">SlidingTackle</th>
+        <th class="phy">Jumping</th>
+        <th class="phy">Stamina</th>
+        <th class="phy">Strength</th>
+        <th class="phy">Aggression</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+      </table>
+    </div>
+
+
+    <button id="get-vector" class="waves-effect waves-light btn button-m" onclick="getVectorWeights()">Tìm Vector Trọng Tâm</button>
+
+    <div id="vector-loop" class="setting-input row"></div>
+
+    <button id="create-training" class="waves-effect waves-light btn button-m" onclick="createDataTraining()">Gom Cụm Và Tạo Data Training</button>
+    <div class="setting-input row show-clustering">
+        <div class="col s4">
+          <div class="clustering-title row"><span class="col s8">Midfielder</span> <span class="col s4" id="midfielder-ok"></span></div>
+          <div id="clustering-midfielder" class="clustering-list"></div>
+        </div>
+        <div class="col s4">
+          <div class="clustering-title row"><span class="col s8">Strikers</span> <span class="col s4" id="strikers-ok"></span></div>
+          <div id="clustering-strikers" class="clustering-list"></div>
+        </div>
+        <div class="col s4">
+          <div class="clustering-title row"><span class="col s8">Defender</span> <span class="col s4" id="defender-ok"></span></div>
+          <div id="clustering-defender" class="clustering-list"></div>
+        </div>
+    </div>
+
+    <div class="file-upload-test m-file-upload">
+      <div class="file-select">
+        <div class="file-select-button" id="fileName">Chọn File</div>
+        <div class="file-select-name" id="noFileTest">Hiên chưa có file được chọn...</div> 
+        <input type="file" onchange="loadFileTest(this)" name="chooseFile" id="chooseFileTest">
+      </div>
+    </div>
+
+    <div class="table-list" id="table-list-test">
+      <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>STT</th>
+        <th>ID</th>
+        <th class="pac">Acceleration</th>
+        <th class="pac">SprintSpeed</th>
+        <th class="sho">Finishing</th>
+        <th class="sho">Volleys</th>
+        <th class="sho">ShotPower</th>
+        <th class="sho">LongShots</th>
+        <th class="sho">Positioning</th>
+        <th class="sho">Penalties</th>
+        <th class="pas">Vision</th>
+        <th class="pas">ShortPassing</th>
+        <th class="pas">Curve</th>
+        <th class="pas">FKAccuracy</th>
+        <th class="pas">LongPassing</th>
+        <th class="pas">Crossing</th>
+        <th class="dri">BallControl</th>
+        <th class="dri">Dribbling</th>
+        <th class="dri">Agility</th>
+        <th class="dri">Reactions</th>
+        <th class="dri">Balance</th>
+        <th class="dri">Composure</th>
+        <th class="def">HeadingAccuracy</th>
+        <th class="def">Interceptions</th>
+        <th class="def">Marking</th>
+        <th class="def">StandingTackle</th>
+        <th class="def">SlidingTackle</th>
+        <th class="phy">Jumping</th>
+        <th class="phy">Stamina</th>
+        <th class="phy">Strength</th>
+        <th class="phy">Aggression</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+      </table>
+    </div>
+    
+    <script>
+      $('#chooseFile').bind('change', function () {
+        var filename = $("#chooseFile").val();
+        if (/^\s*$/.test(filename)) {
+          $(".file-upload").removeClass('active');
+          $("#noFile").text("No file chosen..."); 
+        }
+        else {
+          $(".file-upload").addClass('active');
+          $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+        }
+      });
+
+      
+      $('#chooseFileTest').bind('change', function () {
+        var filename = $("#chooseFileTest").val();
+        if (/^\s*$/.test(filename)) {
+          $(".file-upload-test").removeClass('active');
+          $("#noFileTest").text("No file chosen..."); 
+        }
+        else {
+          $(".file-upload-test").addClass('active');
+          $("#noFileTest").text(filename.replace("C:\\fakepath\\", "")); 
+        }
+      });
+    </script>
+
+  </body>
+</html>
