@@ -9,7 +9,7 @@ Yêu cầu:
 
 Cài đặt:
 + git clone https://github.com/uitcode/doanKTDL.git
-+ mở terminar (hoặc cmd) tại thu mục cài đặt chạy các lệnh sau:
++ mở terminar (hoặc cmd) tại thư mục cài đặt và chạy các lệnh sau:
 + npm i
 + npm start
 
